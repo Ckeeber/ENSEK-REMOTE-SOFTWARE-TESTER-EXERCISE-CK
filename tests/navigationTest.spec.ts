@@ -79,7 +79,3 @@ test('Load about page successfully', async ({ page }) => {
             
      });
 
-
-
-    
-
