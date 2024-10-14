@@ -3,6 +3,7 @@ import { ensekSite } from '../framework/ensekCandiateSite';
 import { ensekAboutPage } from '../framework/aboutPageElements';
 import { ensekNavBar } from '../framework/navBannerElements';
 import { abort } from 'process';
+import { ensekHomePage } from '../framework/homePageElements';
 
 
 test('Load website successfully', async ({ page }) => {
@@ -79,3 +80,52 @@ test('Load about page successfully', async ({ page }) => {
             
      });
 
+     test('Load buy some energy', async ({ page }) => {
+
+      const CandiateTest = new ensekSite(page);
+      const Nav =  new ensekNavBar(page);
+      const Home = new ensekHomePage(page);
+          
+      await CandiateTest.goto();
+      await CandiateTest.getStarted();
+         // Navigate to the about page
+      await Home.buyEnergyButton();
+          // check correct page has loaded with correct responses api response
+      const response = await page.request.get('https://ensekautomationcandidatetest.azurewebsites.net/Energy/Buy');
+      await expect(response).toBeOK();
+
+     });
+
+     test('Load Sell some energy', async ({ page }) => {
+
+      const CandiateTest = new ensekSite(page);
+      const Nav =  new ensekNavBar(page);
+      const Home = new ensekHomePage(page);
+          
+      await CandiateTest.goto();
+      await CandiateTest.getStarted();
+         // Navigate to the about page
+      await Home.sellEnergyButton();
+          // check correct page has loaded with correct responses api response
+      const response = await page.request.get('https://ensekautomationcandidatetest.azurewebsites.net/Energy/Sell');
+      await expect(response).toBeOK();
+
+     });
+
+     test('Load About us ', async ({ page }) => {
+
+      const CandiateTest = new ensekSite(page);
+      const Nav =  new ensekNavBar(page);
+      const Home = new ensekHomePage(page);
+          
+      await CandiateTest.goto();
+      await CandiateTest.getStarted();
+         // Navigate to the about page
+      await Home.aboutUsButton();
+          // check correct page has loaded with correct responses api response
+      const response = await page.request.get('https://ensekautomationcandidatetest.azurewebsites.net/Home/About');
+      await expect(response).toBeOK();
+
+     });
+
+ 
