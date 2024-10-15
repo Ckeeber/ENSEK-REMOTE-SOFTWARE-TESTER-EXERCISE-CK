@@ -1,8 +1,6 @@
 import { test, expect, Page } from '@playwright/test';
 import { ensekSite } from '../framework/ensekCandiateSite';
-import { ensekAboutPage } from '../framework/aboutPageElements';
 import { ensekNavBar } from '../framework/navBannerElements';
-import { abort } from 'process';
 import { ensekHomePage } from '../framework/homePageElements';
 
 
