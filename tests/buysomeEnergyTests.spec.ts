@@ -1,10 +1,7 @@
 import { test, expect, Page } from '@playwright/test';
 import { beforeEach } from 'node:test';
-import { ensekSite } from '../framework/ensekCandiateSite';
+import { ensekSite } from '../framework/ensekCandidateSite';
 import { ensekHomePage } from '../framework/homePageElements';
-import { energyBuy } from '../framework/buyenergyPageelements';
-import { json } from 'stream/consumers';
-import { get, request } from 'node:http';
 
 
 
@@ -14,11 +11,11 @@ import { get, request } from 'node:http';
 
 test('buy some Gas', async ({ page }) => {
 const Energy = new energyBuy(page);
-const CandiateTest = new ensekSite(page);
+const CandidateTest = new ensekSite(page);
 const Home = new ensekHomePage(page);
 
-await CandiateTest.goto();
-await CandiateTest.getStarted();
+await CandidateTest.goto();
+await CandidateTest.getStarted();
 const response = await page.request.get('https://ensekautomationcandidatetest.azurewebsites.net/');
 await expect(response).toBeOK();
 await Home.buyEnergyButton();
