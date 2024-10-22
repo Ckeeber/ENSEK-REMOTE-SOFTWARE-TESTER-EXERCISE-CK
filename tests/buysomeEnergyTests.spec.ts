@@ -2,6 +2,7 @@ import { test, expect, Page } from '@playwright/test';
 import { beforeEach } from 'node:test';
 import { ensekSite } from '../framework/ensekCandidateSite';
 import { ensekHomePage } from '../framework/homePageElements';
+import { energyBuy } from '../framework/buyenergyPageelements';
 
 
 
